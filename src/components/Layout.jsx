@@ -1,6 +1,7 @@
 import "@styles/Layout.css";
 import StateCompo from "@context/StateCompo";
 import AsideMenu from "./AsideMenu";
+import Maps from "@components/Maps";
 function Layout() {
   return (
     <StateCompo>
@@ -8,7 +9,9 @@ function Layout() {
         <aside className="[grid-area:aside] flex-col flex overflow-y-auto">
             <AsideMenu />
         </aside>
-        <main className="[grid-area:main] rounded-lg bg-zinc-900 overflow-y-auto w-full"></main>
+        <main className="[grid-area:main] rounded-lg bg-zinc-900 overflow-y-auto w-full">
+          <Maps />
+        </main>
       </div>
     </StateCompo>
   );

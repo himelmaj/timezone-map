@@ -16,9 +16,9 @@ function AsideMenu() {
       <div className="bg-zinc-900 rounded-lg p-2 h-80">
         <AnalogClock />
       </div>
-      <div className="bg-zinc-900 rounded-lg p-2  ">
+      {/* <div className="bg-zinc-900 rounded-lg p-2  ">
         <Filters />
-      </div>
+      </div> */}
     </div>
   );
 }

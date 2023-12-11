@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 const StateCompo = ({ children }) => {
   const [clock, setClock] = useState(new Date());
-
+  const [zone, setZone] = useState("");
   useEffect(() => {
     const timer = setInterval(() => {
       setClock(new Date());
@@ -12,7 +12,9 @@ const StateCompo = ({ children }) => {
   }, []);
 
   return (
-    <clockContext.Provider value={{clock, setClock}}>{children}</clockContext.Provider>
+    <clockContext.Provider value={{clock, setClock, setZone, zone}}>
+      {children}
+    </clockContext.Provider>
   );
 };
 
