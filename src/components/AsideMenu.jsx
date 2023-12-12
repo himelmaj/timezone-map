@@ -1,8 +1,6 @@
 import DigitalClock from "./DigitalClock";
 import AnalogClock from "./AnalogClock";
 import DateClock from "./DateClock";
-import TimeZones from "./TimeZones";
-import Filters from "./Filters";
 function AsideMenu() {
         
   return (
