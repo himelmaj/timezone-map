@@ -9,7 +9,7 @@ function Layout() {
         <aside className="[grid-area:aside] flex-col flex overflow-y-auto">
             <AsideMenu />
         </aside>
-        <main className="[grid-area:main] rounded-lg bg-zinc-900 overflow-y-auto w-full">
+        <main className="[grid-area:main] rounded-lg bg-zinc-900 overflow-y-auto w-full flex items-center justify-center">
           <Maps />
         </main>
       </div>

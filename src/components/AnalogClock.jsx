@@ -6,7 +6,7 @@ function AnalogClock() {
   const { clock } = useContext(clockContext);
 
   return (
-    <div className="clock flex gap-4 text-zinc-400 hover:text-zinc-100 items-center py-3 px-5 font-medium transition duration-300 ml-36 mt-36 ">
+    <div className="clock flex gap-4 text-zinc-400 hover:text-zinc-100 items-center py-3 px-5 font-medium transition duration-300  ">
       <div
         className="hour_hand"
         style={{

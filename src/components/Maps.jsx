@@ -1,11 +1,13 @@
 import WorldMap from "react-svg-worldmap";
 
 function Maps() {
-  const data = [];
   return (
     <WorldMap
-    size="xxl"
-    data={data}
+    backgroundColor="transparent"
+    color="white"
+    borderColor="white"
+    size={1200}
+    data={[]}
   />
   )
 }
