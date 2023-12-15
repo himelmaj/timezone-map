@@ -1,21 +1,21 @@
 import { clockContext } from "./clockContext";
 import { useState, useEffect } from "react";
-import countriesAndTimezones from 'countries-and-timezones';
 import moment from 'moment-timezone';
 
 const StateCompo = ({ children }) => {
-  const [countryISO, setCountryISO] = useState('');
+  const [timeZone, setTimeZone] = useState('');
   const [clock, setClock] = useState(new Date());
 
   useEffect(() => {
     const timer = setInterval(() => {
-      countryISO.length > 0 ? setClock(moment.tz(countriesAndTimezones.getCountry(countryISO).timezones[0])) : setClock(new Date());
+      setClock(moment().tz(timeZone).toDate());
     }, 1000);
     return () => clearInterval(timer);
-  }, []);
+  }, [timeZone]); 
+  
 
   return (
-    <clockContext.Provider value={{clock, setClock, setCountryISO, countryISO}}>
+    <clockContext.Provider value={{clock, setClock, timeZone, setTimeZone}}>
       {children}
     </clockContext.Provider>
   );
