@@ -1,43 +1,30 @@
-import { useState, useContext, useEffect } from "react";
+import { useCallback, useContext } from "react";
 import WorldMap from "react-svg-worldmap";
-import { countryContext } from "@context/countryContext";
-import { clockContext } from "@context/clockContext";
 import countriesAndTimezones from "countries-and-timezones";
-
+import { MapContext } from "../context/mapContext";
 function Maps() {
-  const { setTimeZone, timeZone } = useContext(clockContext);
-  const [state, setState] = useState({
-    cName: "Select Country",
-    iso: "",
-    timezones: "",
-  });
+  const { dispatch } = useContext(MapContext);
 
-  const handleCountry = (context) => {
-    setState({
-      cName: context.countryName,
-      iso: context.countryCode,
-      timezones: countriesAndTimezones.getCountry(context.countryCode)
-        .timezones[0],
+  const handleCountry = useCallback(({ countryName, countryCode }) => {
+    dispatch({
+      type: "SET_COUNTRY",
+      payload: {
+        country: countryName,
+        code: countryCode,
+        timezones: countriesAndTimezones.getCountry(countryCode).timezones,
+      },
     });
-  };
+  }, []);
 
-  useEffect(() => {
-    setTimeZone(state.timezones);
-  }, [state.timezones]);
-
-  
   return (
-    <countryContext.Provider value={state}>
-      <WorldMap
-        backgroundColor="transparent"
-        color="white"
-        borderColor="white"
-        size={1200}
-        data={[]}
-        onClickFunction={handleCountry}
-      />
-      {console.log(timeZone)}
-    </countryContext.Provider>
+    <WorldMap
+      backgroundColor="transparent"
+      color="white"
+      borderColor="white"
+      size={1200}
+      data={[]}
+      onClickFunction={handleCountry}
+    />
   );
 }
 
