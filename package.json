@@ -10,8 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@nextui-org/react": "^2.2.9",
     "axios": "^1.6.2",
     "countries-and-timezones": "^3.6.0",
+    "framer-motion": "^10.18.0",
     "google-map-react": "^2.2.1",
     "moment-timezone": "^0.5.43",
     "pnpm": "^8.12.0",
